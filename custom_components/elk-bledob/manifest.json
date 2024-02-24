@@ -1,15 +1,15 @@
 {
-  "domain": "bj_led",
-  "name": "BJ_LED BLE",
+  "domain": "elkbledob",
+  "name": "ELK BLEDOB",
   "bluetooth": [
-      { "local_name": "BJ_LED" }
+      { "local_name": "ELKBLEDOB" }
     ],
   "codeowners": ["@8none1"],
   "config_flow": true,
   "dependencies": ["bluetooth"],
-  "documentation": "https://github.com/8none1/bj_led",
+  "documentation": "https://github.com/8none1/elk-bledob",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/8none1/bj_led/issues",
+  "issue_tracker": "https://github.com/8none1/elk-bledob/issues",
   "requirements": ["bleak-retry-connector>=1.17.1","bleak>=0.17.0"],
   "version": "0.0.1",
   "integration_type": "device"
