@@ -46,7 +46,7 @@ class DeviceData(BluetoothData):
         """Update from BLE advertisement data."""
         LOGGER.debug("Parsing BLE advertisement data: %s", service_info)
         
-class BJLEDFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
+class ELKBLEDOBFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     VERSION = 1
     CONNECTION_CLASS = config_entries.CONN_CLASS_LOCAL_POLL
 
