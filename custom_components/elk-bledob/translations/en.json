@@ -17,7 +17,7 @@
             },
             "manual": {
                 "data": {
-                    "mac": "BJ_LED device:",
+                    "mac": "ELK-BLEDOB device:",
                     "name": "Name"
                 },
                 "title": "Enter bluetooth MAC address"
