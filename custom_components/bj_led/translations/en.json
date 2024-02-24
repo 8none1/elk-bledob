@@ -1,0 +1,45 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data": {
+                    "mac": "Device:",
+                    "name": "Name"
+                },
+                "title": "Choose a device."
+            },
+            "validate": {
+                "data": {
+                    "retry": "Retry validate connection?",
+                    "flicker": "Did the light blink?"
+                },
+                "title": "Validate connection"
+            },
+            "manual": {
+                "data": {
+                    "mac": "BJ_LED device:",
+                    "name": "Name"
+                },
+                "title": "Enter bluetooth MAC address"
+            }
+        },
+        "error": {
+            "connect": "Unable to connect"
+        },
+        "abort": {
+            "cannot_validate": "Unable to validate",
+            "cannot_connect": "Unable to connect"
+        }
+    },
+    "options": {
+        "step": {
+            "user": {
+                "data": {
+                    "reset": "Reset color when led turn on",
+                    "delay": "Disconnect delay (0 equal never disconnect)"
+                }
+            }
+        }
+    },
+    "title": "BJ_LED"
+}
