@@ -6,8 +6,7 @@ These are really cheap Bluetooth controlled LEDs available on AliExpress.  5M of
 
 Available here: https://www.aliexpress.com/item/1005005827818737.html
 
-<image here>
-
+![image](https://github.com/8none1/elk-bledob/assets/6552931/5d98ff5b-39af-46da-84b9-4140c34f24fd)
 
 ## Understanding the protocol
 
