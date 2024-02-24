@@ -26,14 +26,14 @@ async def async_setup_entry(hass, config_entry, async_add_devices):
     instance = hass.data[DOMAIN][config_entry.entry_id]
     await instance.update()
     async_add_devices(
-        [BJLEDLight(instance, config_entry.data["name"], config_entry.entry_id)]
+        [ELKBLEDOBLight(instance, config_entry.data["name"], config_entry.entry_id)]
     )
 
-class BJLEDLight(LightEntity):
+class ELKBLEDOBLight(LightEntity):
     def __init__(
-        self, bjledinstance: ELKBLEDOBInstance, name: str, entry_id: str
+        self, elkbledobinstance: ELKBLEDOBInstance, name: str, entry_id: str
     ) -> None:
-        self._instance = bjledinstance
+        self._instance = elkbledobinstance
         self._entry_id = entry_id
         self._attr_supported_color_modes = {ColorMode.RGB}
         self._attr_supported_features = LightEntityFeature.EFFECT
