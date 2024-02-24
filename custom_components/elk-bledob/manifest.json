@@ -1,8 +1,8 @@
 {
-  "domain": "elkbledob",
+  "domain": "elk-bledob",
   "name": "ELK BLEDOB",
   "bluetooth": [
-      { "local_name": "ELKBLEDOB" }
+      { "local_name": "ELK-BLEDOB" }
     ],
   "codeowners": ["@8none1"],
   "config_flow": true,
