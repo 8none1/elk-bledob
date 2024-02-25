@@ -90,7 +90,7 @@ MAC address seem to start `BE:32:xx:xx:xx:xx`.
 - On/Off
 - RGB colour
 - Brightness
-- Fancy colour Modes (not speed)
+- Modes/effects
 - Automatic discovery of supported devices
 
 ## Not supported and not planned
@@ -108,6 +108,7 @@ The discovery of the light's state requires that the device be able to tell us w
 ### Requirements
 
 You need to have the bluetooth component configured and working in Home Assistant in order to use this integration.
+NB: If your lights are still connected to the App then they will not be automatically discovered until you disconnect.
 
 ### HACS
 
