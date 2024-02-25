@@ -12,7 +12,7 @@ Available here: https://www.aliexpress.com/item/1005005827818737.html
 
 This time around I'm taking a different route to finding the commands to operate the lights.  Instead of pulling btsnoop files off an Android phone I am using an NRF 52840 dongle with BLE sniffer software running on it.  The reason for this is that Android is making it harder and harder to get proper btsnoop logs off devices and on to your computer.  Despite this working in the past, after a recent Android update I am now only getting `btsnooz` files which seem to truncate the data to the first 5 bytes or so.  I haven't tried to fix this or work out why, I'm going for something which is going to work without as much messing about in to the foreseeable future.  Using these NRF 52840 devices with Wireshark is well documented.
 
-There are some btsnoop HCI logs in the `bt_snoops` folder if you want to examine them.
+There are some Wireshark pcap files in the `bt_snoops` folder if you want to examine them.
 
 ## Similar devices
 
