@@ -76,9 +76,7 @@ Mode are numbered `0x87` to `0x9c`.
 
 #### Mode Brightness
 
-```
-7e 04 01 64 00 ff 02 01 ef
-```
+This is the same as colours brightness.
 
 ## Supported devices
 
@@ -122,3 +120,10 @@ Add this repo to HACS as a custom repo.  Click through:
 - Restart Home Assistant
 - ELK-BLEDOB devices should start to appear in your Integrations page
 
+## Other projects that might be of interest
+
+- [iDotMatrix](https://github.com/8none1/idotmatrix)
+- [Zengge LEDnet WF](https://github.com/8none1/zengge_lednetwf)
+- [iDealLED](https://github.com/8none1/idealLED)
+- [BJ_LED](https://github.com/8none1/bj_led)
+- [ELK BLEDOB](https://github.com/8none1/elk-bledob)
