@@ -1,5 +1,5 @@
 {
-  "domain": "elk-bledob",
+  "domain": "elk_bledob",
   "name": "ELK BLEDOB",
   "bluetooth": [
       { "local_name": "ELK-BLEDOB" }

@@ -295,7 +295,7 @@ class ELKBLEDOBInstance:
 
     @retry_bluetooth_connection_error
     async def update(self):
-        LOGGER.debug("%s: Update in elk-bledob called", self.name)
+        LOGGER.debug("%s: Update in elk_bledob called", self.name)
         # I dont think we have anything to update
 
     async def _ensure_connected(self) -> None:

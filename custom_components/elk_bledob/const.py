@@ -1,5 +1,5 @@
 from enum import Enum
 
-DOMAIN = "elk-bledob"
+DOMAIN = "elk_bledob"
 CONF_RESET = "reset"
 CONF_DELAY = "delay"
