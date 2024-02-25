@@ -290,7 +290,7 @@ class ELKBLEDOBInstance:
         effect_id = EFFECT_MAP.get(effect)
         LOGGER.debug('Effect ID: %s', effect_id)
         LOGGER.debug('Effect name: %s', effect)
-        effect_packet[4] = effect_id
+        effect_packet[3] = effect_id
         await self._write(effect_packet)
 
     @retry_bluetooth_connection_error
