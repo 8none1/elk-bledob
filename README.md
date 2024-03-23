@@ -129,4 +129,5 @@ Add this repo to HACS as a custom repo.  Click through:
 - [BJ_LED](https://github.com/8none1/bj_led)
 - [ELK BLEDOB](https://github.com/8none1/elk-bledob)
 - [HiLighting LED](https://github.com/8none1/hilighting_homeassistant)
+- [BLELED LED Lamp](https://github.com/8none1/ledble-ledlamp)
 
