@@ -8,6 +8,8 @@ Available here: https://www.aliexpress.com/item/1005005827818737.html
 
 ![image](https://github.com/8none1/elk-bledob/assets/6552931/5d98ff5b-39af-46da-84b9-4140c34f24fd)
 
+![image](https://github.com/8none1/elk-bledob/assets/6552931/97a1cbcc-e807-45d3-b05d-55879c4905ce)
+
 ## Understanding the protocol
 
 This time around I'm taking a different route to finding the commands to operate the lights.  Instead of pulling btsnoop files off an Android phone I am using an NRF 52840 dongle with BLE sniffer software running on it.  The reason for this is that Android is making it harder and harder to get proper btsnoop logs off devices and on to your computer.  Despite this working in the past, after a recent Android update I am now only getting `btsnooz` files which seem to truncate the data to the first 5 bytes or so.  I haven't tried to fix this or work out why, I'm going for something which is going to work without as much messing about in to the foreseeable future.  Using these NRF 52840 devices with Wireshark is well documented.
