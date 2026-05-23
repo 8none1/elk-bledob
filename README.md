@@ -22,9 +22,22 @@ There are a number of integrations which support the ELK BLEDOM devices (note th
 
 ## Bluetooth LE commands
 
-### Initial Connection
+### Initial Connection / Time Sync
 
-The bytes `7e 06 83 0f 20 0c 06 00 ef` are sent at connection time.  It is unknown what this does at the moment.
+At connection time the official app sends a time-of-day packet, e.g. `7e 06 83 0f 20 0c 06 00 ef`.
+
+```
+|------| ----------------------- header
+|      | ||--------------------- hour   (0-23, hex)
+|      | || ||------------------ minute (0-59, hex)
+|      | || || ||--------------- second (0-59, hex)
+|      | || || || ||------------ day-of-week (observed as 0x06 in pcaps; Mon=1..Sun=7 seems most likely)
+|      | || || || || ||--------- unknown / always 0x00
+|      | || || || || || |------- footer
+7e 06 83 0f 20 0c 06 00 ef
+```
+
+Hat tip to [#5](https://github.com/8none1/elk-bledob/issues/5) for pointing this out. The day-of-week encoding above is inferred — the pcaps in this repo only contain a single value, so it's a best guess. This integration sends this packet on every connection so that the device clock stays roughly in sync. The clock seems to be needed for the on-device timer feature, which this integration does not expose.
 
 ### On & Off
 
@@ -94,14 +107,15 @@ MAC address seem to start `BE:32:xx:xx:xx:xx`.
 - Brightness
 - Modes/effects
 - Automatic discovery of supported devices
+- Device clock is synced on every connect (see "Initial Connection / Time Sync" above)
 
 ## Not supported and not planned
 
 - Microphone interactivity
-- Timer / Clock functions
+- On-device timer / scheduling
 - Discovery of current light state
 
-The timer/clock functions are understandable from the HCI Bluetooth logs but adding that functionality seems pointless and I don't think Home Assistant would support it any way.
+The on-device timer is what tells the lights to turn themselves on/off at a particular wall-clock time without anything else being involved. It is documented in [#5](https://github.com/8none1/elk-bledob/issues/5) but exposing it from Home Assistant seems pointless — HA can already do scheduling with automations, and doing it on the device would just be a second, harder-to-discover place that affects the lights.
 
 The discovery of the light's state requires that the device be able to tell us what state it is in.  The BT controller on the device does report that it has `notify` capabilities but I have not been able to get it to report anything at all.  Perhaps you will have more luck.  Until this is solved, we have to use these lights in `optimistic` mode and assume everything just worked.  Looking at HCI logs from the Android app it doesn't even try to enable notifications and never receives a packet from the light.
 

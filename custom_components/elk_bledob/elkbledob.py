@@ -1,4 +1,5 @@
 import asyncio
+from datetime import datetime
 from homeassistant.components import bluetooth
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.components.light import (ColorMode)
@@ -200,6 +201,17 @@ class ELKBLEDOBInstance:
     async def _write_while_connected(self, data: bytearray):
         LOGGER.debug(f"Writing data to {self.name}: {data.hex()}")
         await self._client.write_gatt_char(self._write_uuid, data, False)
+
+    async def _sync_time(self):
+        # 7e 06 83 HH MM SS DOW 00 ef. DOW encoding inferred from pcaps (byte 7 = 0x06 on captures); isoweekday() Mon=1..Sun=7 matches.
+        now = datetime.now()
+        packet = bytearray.fromhex("7e 06 83 00 00 00 00 00 ef")
+        packet[3] = now.hour
+        packet[4] = now.minute
+        packet[5] = now.second
+        packet[6] = now.isoweekday()
+        LOGGER.debug("%s: Syncing time: %s", self.name, packet.hex())
+        await self._write_while_connected(packet)
     
     @property
     def mac(self):
@@ -331,6 +343,10 @@ class ELKBLEDOBInstance:
             self._cached_services = client.services if resolved else None
 
             self._client = client
+            try:
+                await self._sync_time()
+            except BLEAK_EXCEPTIONS as err:
+                LOGGER.debug("%s: Time sync on connect failed: %s", self.name, err)
             self._reset_disconnect_timer()
 
     def _resolve_characteristics(self, services: BleakGATTServiceCollection) -> bool:
